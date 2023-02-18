@@ -1,0 +1,6 @@
+{
+    "label_matrix_path": "./GeneratorExperimentsResults/news_acl_495_1_1/label_matrix_news_acl_495_1_1.csv.gz",
+    "experiment_name": "news_majority_vote_acl_495",
+    "experiment_version": "1.1",
+    "results_save_path": "./MajorityVoteExperimentsResults"
+}

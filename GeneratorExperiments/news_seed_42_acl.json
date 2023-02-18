@@ -1,0 +1,19 @@
+{
+    "input_df_path": "./data/news_data_new/train_input_df.csv.gz",
+    "unpickle_columns": ["entity_tokens", "flair_spans"],
+
+    "epochs": 1000,
+    "log_frequency": 1000,
+    "seed": 42,
+
+    "experiment_name": "news_acl_42",
+    "experiment_version": "1.1",
+
+    "label_matrix_save_path": "./GeneratorExperimentsResults",
+    "evaluate_generated_labels": true,
+    "train_gold_data_path": "./data/news_data_new/train_gold_data.csv.gz",
+    "test_input_df_path": "./data/news_data_new/test_input_df.csv.gz",
+    "test_gold_data_path": "./data/news_data_new/test_gold_data.csv.gz",
+
+    "split_generated_data": false
+}

@@ -1,0 +1,6 @@
+{
+    "test_data_path": "./GeneratorExperimentsResults/news_acl_1729_test_split_1_1/news_acl_1729_test_split_1_1_gold_data_generated_data.csv.gz",
+    "experiment_name": "news_only_flair_acl_1729",
+    "experiment_version": "1.1",
+    "results_save_path": "./VanillaFlairExperimentsResults"
+}

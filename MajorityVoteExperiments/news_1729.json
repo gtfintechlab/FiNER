@@ -1,5 +1,5 @@
 {
-    "label_matrix_path": "./GeneratorExperimentsResults/news_sigir_1729_1_1/label_matrix_news_sigir_1729_1_1.csv.gz",
+    "label_matrix_path": "./GeneratorExperimentsResults/news_sigir_1729_test_split_1_1/label_matrix_news_sigir_1729_test_split_1_1.csv.gz",
     "experiment_name": "news_majority_vote_sigir_1729",
     "experiment_version": "1.1",
     "results_save_path": "./MajorityVoteExperimentsResults"

@@ -316,7 +316,7 @@ def label_org_heuristic_2(x):
         spans.append((cos_start[co_idx], cos_start[co_idx] + len(cos[co_idx])))
 
     spans = filter_spans(x.text, spans)
-    return x.text, generate_labels(x, spans, "ORG", "ENTITY")
+    return x.uuid, generate_labels(x, spans, "ORG", "ENTITY")
 
 
 @labeling_function(pre=[pre_tokenize_text])
@@ -339,7 +339,7 @@ def label_per_heuristic_suffix(x):
         i += 1
 
     spans = filter_spans(x.text, spans)
-    return x.text, generate_labels(x, spans, "PER", "ENTITY")
+    return x.uuid, generate_labels(x, spans, "PER", "ENTITY")
 
 
 @labeling_function(pre=[pre_tokenize_text])
@@ -363,7 +363,7 @@ def label_org_heuristic_abbr(x):
         i += 1
 
     spans = filter_spans(x.text, spans)
-    return x.text, generate_labels(x, spans, "ORG", "ENTITY")
+    return x.uuid, generate_labels(x, spans, "ORG", "ENTITY")
 
 
 @labeling_function(pre=[pre_tokenize_text])
@@ -376,7 +376,7 @@ def label_org_heuristic_partner(x):
     tokens = x.entity_tokens
     i = 0
     if len(tokens) == 1:
-        return x.text, generate_labels(x, spans, "ORG", "ENTITY")
+        return x.uuid, generate_labels(x, spans, "ORG", "ENTITY")
     while i < len(tokens):
         if (i + 3) < len(tokens) and (
                 tokens[i][0] == "partner" or tokens[i][0] == "partnered" or tokens[i][0] == "partnering") and \
@@ -386,7 +386,7 @@ def label_org_heuristic_partner(x):
         i += 1
 
     spans = filter_spans(x.text, spans)
-    return x.text, generate_labels(x, spans, "ORG", "ENTITY")
+    return x.uuid, generate_labels(x, spans, "ORG", "ENTITY")
 
 
 @labeling_function(pre=[pre_tokenize_text])
@@ -399,7 +399,7 @@ def label_org_heuristic_trademark(x):
     tokens = x.entity_tokens
     i = 0
     if len(tokens) == 1:
-        return x.text, generate_labels(x, spans, "ORG", "ENTITY")
+        return x.uuid, generate_labels(x, spans, "ORG", "ENTITY")
     while i < len(tokens):
         if ((i + 3) < len(tokens)) and (tokens[i][0] == "trademark" or tokens[i][0] == "trademarks") and tokens[i + 1][
             0] == "of":
@@ -409,4 +409,4 @@ def label_org_heuristic_trademark(x):
         i += 1
 
     spans = filter_spans(x.text, spans)
-    return x.text, generate_labels(x, spans, "ORG", "ENTITY")
+    return x.uuid, generate_labels(x, spans, "ORG", "ENTITY")

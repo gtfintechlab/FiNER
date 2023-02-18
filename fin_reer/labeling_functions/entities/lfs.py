@@ -283,6 +283,43 @@ def label_per_heuristic_1(x):
 
 
 @labeling_function(pre=[pre_tokenize_text])
+def label_org_heuristic_2(x):
+    '''
+    finds company and labels it as org
+    '''
+    spans = []
+    cos = []  # there may be multiple acts in a single sentence, need to extract labels for all acts
+    cos_start = []
+
+    entity_tokens = x.entity_tokens
+
+    for i, (token, token_span) in enumerate(entity_tokens):
+
+        if token.lower() == 'llc' or token.lower() == 'inc' or token.lower() == 'corp' or token.lower() == 'co':
+            co_start, co_end = token_span
+
+            cont = True
+            idx = i - 1
+
+            while cont and idx >= 0:
+                if entity_tokens[idx][0][0].isupper():
+                    co_start, end = entity_tokens[idx][1]
+                else:
+                    cont = False
+                idx -= 1
+            cos.append(x.text[co_start:co_end])
+            cos_start.append(co_start)
+
+            co = pre_tokenizer.pre_tokenize_str(x.text[co_start:co_end])
+
+    for co_idx in np.arange(len(cos)):
+        spans.append((cos_start[co_idx], cos_start[co_idx] + len(cos[co_idx])))
+
+    spans = filter_spans(x.text, spans)
+    return x.text, generate_labels(x, spans, "ORG", "ENTITY")
+
+
+@labeling_function(pre=[pre_tokenize_text])
 def label_per_heuristic_suffix(x):
     """
     Description:

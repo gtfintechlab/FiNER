@@ -1,5 +1,7 @@
 # FiNER
 
+This repository contains the weak-ner framework for the paper "[FiNER: Financial Named Entity Recognition Dataset and Weak-Supervision Model](https://arxiv.org/abs/2302.11157v1)". The dataset, available on [HuggingFace](https://huggingface.co/datasets/gtfintechlab/finer-ord), can be used as a benchmark for financial domain-specific NER and NLP tasks. FiNER consists of a manually annotated dataset of English financial news articles collected from [webz.io](https://webz.io/free-datasets/financial-news-articles/). More information is available in the [paper](https://arxiv.org/abs/2302.11157v1).
+
 ## Setup
 
 ### Clone the repo
@@ -126,12 +128,12 @@ python3 fin_reer/weak_ner_pipeline.py "GeneratorExperiments/news_seed_42_sigir.j
 ```
 
 ## Citation
-```latex
-@article{shah2023finer,
-  title={FiNER: Financial Named Entity Recognition Dataset and Weak-supervision Model},
-  author={Agam Shah and Ruchit Vithani and Abhinav Gullapalli and Sudheer Chava},
+```c
+@article{shah2024finerordfinancialnamedentity,
+  title={FiNER-ORD: Financial Named Entity Recognition Open Research Dataset},
+  author={Agam Shah and Abhinav Gullapalli and Ruchit Vithani and Michael Galarnyk and Sudheer Chava},
   journal={arXiv preprint arXiv:2302.11157},
-  year={2023}
+  year={2024}
 }
 ```
 
